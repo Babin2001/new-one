@@ -1,0 +1,89 @@
+{% extends 'temp/user.html' %}
+{% block base %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Element Example</title>
+<style>
+    {#body {#}
+    {#  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;#}
+    {#  background-color: #f4f4f4;#}
+    {#  text-align: center;#}
+    {#  padding: 50px;#}
+
+    {#h1 {#}
+    {#  color: #333;#}
+
+
+    progress {
+      width: 100%;
+      height: 30px;
+      appearance: none;
+      border: none;
+      border-radius: 5px;
+      background-color: #ddd;
+    }
+
+    progress::-webkit-progress-bar {
+      border-radius: 5px;
+      background-color: #ddd;
+    }
+
+    progress::-webkit-progress-value {
+      border-radius: 5px;
+      background-color: #4caf50;
+    }
+
+    progress::-moz-progress-bar {
+      border-radius: 5px;
+      background-color: #4caf50;
+    }
+
+    p {
+      font-size: 18px;
+      color: #777;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+</head>
+  <section class="book_section layout_padding">
+    <div class="container" style="width: 500px;">
+      <div class="row">
+{#        <div class="col">#}
+          <form method="post">
+              {% csrf_token %}
+            <h4><span>Review</span>
+            </h4>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="user">Post Review </label>
+                  <textarea type="text" class="form-control" id="user" placeholder="Enter your Review" name="review" style="width:500px; height: 200px" required=""></textarea>
+              </div>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-success">Check</button>
+            </div>
+              <div class="form-row">
+              <div class="form-group">
+                <label for="Result">Result</label>
+                  <input type="text" class="form-control" id="result" placeholder="{{ kk }}" style="width:500px;">
+              </div>
+            </div>
+              <div class="form-row">
+              <div class="form-group">
+            <progress value="{{ per }}" max="100" style="width:500px;"></progress>{{ per }}%
+              </div>
+              </div>
+               <div class="form-row">
+              <div class="form-group">
+            <progress max="100" style="width:500px;"></progress>sentiment:{{ sr }}
+              </div>
+              </div>
+          </form>
+
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
